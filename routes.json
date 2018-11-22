@@ -1,0 +1,30 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# routes
+
+routes is a simple API allowing consumers to view routes.
+
+## Routes Collection [/routes]
+
+### List All Routes [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "rotaID": 1,
+                "rotas": [
+                    {
+                        "dateTime": "2017-10-12T21:34:15",
+                        "latitude": -23.962676666666667,
+                        "longitude": -46.3884785
+                    }, {
+                        "dateTime": "2017-10-12T21:34:15",
+                       "latitude": -23.962676666666667,
+                       "longitude": -46.3884785
+                       
+                    }
+                ]
+            }
+        ]
