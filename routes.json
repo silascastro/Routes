@@ -28,3 +28,22 @@ routes is a simple API allowing consumers to view routes.
                 ]
             }
         ]
+
+### Create a New route [POST]
+
+You may create your own question using this action. It takes a JSON
+object containing a question and a collection of answers in the
+form of choices.
+
++ Request (application/json)
+
+        {
+            "rotaID": 2,
+            "rotas": [
+                "dateTime": "2017-10-12T21:34:15",
+                "latitude": -23.962676666666667,
+                "latitude": -23.962676666666667
+            ]
+        }
+
++ Response 201 (application/json)
