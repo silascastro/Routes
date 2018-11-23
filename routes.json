@@ -1,35 +1,39 @@
 FORMAT: 1A
 HOST: http://polls.apiblueprint.org/
 
-# routes
+# silascastro 
 
-routes is a simple API allowing consumers to view routes.
+Polls is a simple API allowing consumers to view polls and vote in them.
 
-## Routes Collection [/routes]
+## Questions Collection [/questions]
 
-### List All Routes [GET]
+### List All Questions [GET]
 
 + Response 200 (application/json)
 
         [
             {
-                "rotaID": 1,
-                "rotas": [
+                "question": "Favourite programming language?",
+                "published_at": "2015-08-05T08:40:51.620Z",
+                "choices": [
                     {
-                        "dateTime": "2017-10-12T21:34:15",
-                        "latitude": -23.962676666666667,
-                        "longitude": -46.3884785
+                        "choice": "Swift",
+                        "votes": 2048
                     }, {
-                        "dateTime": "2017-10-12T21:34:15",
-                       "latitude": -23.962676666666667,
-                       "longitude": -46.3884785
-                       
+                        "choice": "Python",
+                        "votes": 1024
+                    }, {
+                        "choice": "Objective-C",
+                        "votes": 512
+                    }, {
+                        "choice": "Ruby",
+                        "votes": 256
                     }
                 ]
             }
         ]
 
-### Create a New route [POST]
+### Create a New Question [POST]
 
 You may create your own question using this action. It takes a JSON
 object containing a question and a collection of answers in the
@@ -38,12 +42,39 @@ form of choices.
 + Request (application/json)
 
         {
-            "rotaID": 2,
-            "rotas": [
-                "dateTime": "2017-10-12T21:34:15",
-                "latitude": -23.962676666666667,
-                "latitude": -23.962676666666667
+            "question": "Favourite programming language?",
+            "choices": [
+                "Swift",
+                "Python",
+                "Objective-C",
+                "Ruby"
             ]
         }
 
 + Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?",
+                "published_at": "2015-08-05T08:40:51.620Z",
+                "choices": [
+                    {
+                        "choice": "Swift",
+                        "votes": 0
+                    }, {
+                        "choice": "Python",
+                        "votes": 0
+                    }, {
+                        "choice": "Objective-C",
+                        "votes": 0
+                    }, {
+                        "choice": "Ruby",
+                        "votes": 0
+                    }
+                ]
+            }
